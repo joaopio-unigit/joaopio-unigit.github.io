@@ -1,0 +1,73 @@
+<html>
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+        }
+        .flex-child {
+            flex: 1;
+            height: 600px;
+            position: relative;
+            border: 3px dotted;
+            border-radius: 25px; 
+            border-color: sandybrown;
+        }
+        .flex-child:first-child {
+            margin-right: 20px;
+        }
+        .flex-child:last-child{
+            margin-left: 20px;
+        }
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .goButton{
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            border: 3px solid grey;
+            transition-duration: 0.25s;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+        }
+        .goButton:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <br>
+    <h1 style="color: white; font-family: Arial, Helvetica, sans-serif;
+    font-size: 500%; text-align:center; font-weight: bold;">Welcome!!</h1>
+
+    <div class="flex-container">
+        
+        <div class="flex-child">
+            <h1 style="font-weight: bold; color: white; font-family: Arial, Helvetica, sans-serif; text-align:center; ">Oscilloscope</h1>
+            <a class="center" href="http://www.google.com/">
+                <button class="goButton">Start</button>
+            </a>
+        </div>
+    
+        <div class="flex-child">
+            <h1 style="font-weight: bold; color: white; font-family: Arial, Helvetica, sans-serif; text-align:center; ">Wheelies</h1>
+            <a class="center" href="https://joaopio-unigit.github.io/Rodinhas/radiovan.html">
+                <button class="goButton">Start</button>
+            </a>
+        </div>
+
+        <div class="flex-child">
+            <h1 style="font-weight: bold; color: white; font-family: Arial, Helvetica, sans-serif; text-align:center; ">Shapes & Views</h1>
+            <a class="center" href="http://www.google.com/">
+                <button class="goButton">Start</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

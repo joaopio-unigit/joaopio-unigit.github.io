@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script id="vertex-shader-grid" type="x-shader/x-vertex">
+      attribute vec4 vPosition;
+      void main(){
+          gl_Position = vPosition;
+      }
+    </script>
+   <script id="vertex-shader-wave" type="x-shader/x-vertex">
+    attribute float vTimeSample;
+
+    uniform float time;
+
+    uniform float xFunc;
+    uniform float yFunc;
+
+    uniform float xDisplacement;
+    uniform float yDisplacement;
+
+    uniform float numberOfRows;
+    uniform float numberOfColumns;
+
+    uniform float divVolts;
+    uniform float divSecs;
+    
+    const float PI = 3.1415926;
+
+    //FUNCOES---------------------------------------------------
+    float sinFunc(float t, float phase) { return sin(t * PI * divSecs/2.0 - phase); }
+
+    float cosFunc(float t, float phase) { return cos(t * PI * divSecs/2.0 - phase); }
+
+    float c4(float t, float phase, float time) { 
+      float angVel = 261.63*2.0*PI;                                 
+      return sin((angVel*t*divSecs/2.0) - phase +time);
+    }
+
+    float majorC4(float t, float phase, float time) {
+      float angVelE4 = 329.63*2.0*PI;
+      float angVelG4 = 392.00*2.0*PI;
+
+      return c4(t, phase, time) + sin(angVelE4*t*divSecs/2.0 - phase +time)
+      + sin(angVelG4*t*divSecs/2.0 - phase +time);
+    }
+
+    float f4(float t, float phase, float time) {
+      float angVelF4s = 369.99*2.0*PI;
+      float angVelF4 = 349.23*2.0*PI;
+
+      return sin(angVelF4s*t*divSecs/2.0 - phase +time) + sin(angVelF4*t*divSecs/2.0 - phase +time);
+    }
+
+    float g4(float t, float phase, float time) {
+      float angVel = 392.00*2.0*PI;
+
+      return sin(angVel*t*divSecs/2.0 - phase +time);
+    }
+
+    float b4f5(float t, float phase, float time) {
+      float angVelB4 = 493.88*2.0*PI;
+      float angVelF5 = 698.46*2.0*PI;
+
+      return sin(angVelB4*t*divSecs/2.0 - phase +time) + sin(angVelF5*t*divSecs/2.0 - phase +time);
+    }
+
+    void main(){
+      float x = ((vTimeSample/9999.0)*2.0-1.0);
+      float y = yDisplacement;
+
+      if(yFunc == 0.0){
+        y += c4(x, xDisplacement, time);
+      }
+      if(yFunc == 1.0){
+        y += majorC4(x, xDisplacement, time);
+      }
+      if(yFunc == 2.0){
+        y += f4(x, xDisplacement, time);
+      }
+      if(yFunc == 3.0){
+        y += g4(x, xDisplacement, time);
+      }
+      if(yFunc == 4.0){
+        y += b4f5(x, xDisplacement, time);
+      }
+      
+      if(xFunc == 1.0){
+        x = c4(x, yDisplacement, time)/((numberOfColumns)/2.0)/divVolts;
+      }
+      if(xFunc == 2.0){
+        x = majorC4(x, yDisplacement, time)/((numberOfColumns)/2.0)/divVolts;
+      }
+      if(xFunc == 3.0){
+        x = f4(x, yDisplacement, time)/((numberOfColumns)/2.0)/divVolts;
+      }
+      if(xFunc == 4.0){
+        x = g4(x, yDisplacement, time)/((numberOfColumns)/2.0)/divVolts;
+      }
+      if(xFunc == 5.0){
+        x = b4f5(x, yDisplacement, time)/((numberOfColumns)/2.0)/divVolts;
+      }
+      
+      y = y/((numberOfRows)/2.0) /divVolts;               
+
+      if(yFunc == 5.0){
+        y = ((vTimeSample/9999.0)*2.0-1.0);
+        x += xDisplacement;
+      }
+
+      gl_Position = vec4(x,y,0.0,1.0);
+    }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+      precision mediump float;
+      uniform vec4 fColor;
+      void main() {
+          gl_FragColor = fColor;
+      }
+    </script>
+    <script type="text/javascript" src="webgl-utils.js"></script>
+    <script type="text/javascript" src="initShaders.js"></script>
+    <script type="text/javascript" src="MV.js"></script>
+    <script type="text/javascript" src="oscilloscope.js"></script>
+  </head>
+  <body>
+    <title>Triangle</title>
+    <div style="text-align: center">
+    <canvas id="gl-canvas" width="720" height="480">
+      Oops... your browser doesn't support the HTML5 canvas element"
+    </canvas>
+    <p></p>
+      <INPUT TYPE="button" NAME="button3" VALUE="ON/OFF" SIZE=10 OnClick="onOffFunction()">
+    &nbsp;&nbsp;
+    Eixo Horizontal: 
+    <select id="selectHorizontal">
+      <option value="0">Time</option>
+      <option value="1">C4</option>
+      <option value="2">C4 M</option>
+      <option value="3">F4/F4#</option>
+      <option value="4">G4</option>
+      <option value="5">B4/F5</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="voltsOutput"></span>
+    Volts/Div:
+    <input type="range" min="0" max="11" value="3.0" step="1" list="steplist" id="voltsListSlider">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="secsOutput"></span>
+    Secs/Div:
+    <input type="range" min="0" max="15" value="9.0" step="1" id="secsListSlider">
+    <p></p>
+    Eixo Vertical:
+    <select id="select">
+      <option value="0">C4</option>
+      <option value="1">C4 M</option>
+      <option value="2">F4/F4#</option>
+      <option value="3">G4</option>
+      <option value="4">B4/F5</option>
+      <option value="5">Time</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Deslocamento Horizontal:
+    <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="xSliderOne">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Deslocamento Vertical:
+    <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="ySliderOne">
+    <p></p>
+    Eixo Vertical Extra:
+    <select id="selectExtra">
+      <option value="0">None</option>
+      <option value="1">C4</option>
+      <option value="2">C4 M</option>
+      <option value="3">F4/F4#</option>
+      <option value="4">G4</option>
+      <option value="5">B4/F5</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    Deslocamento Horizontal Extra:
+    <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="xSliderTwo">
+    &nbsp;&nbsp;&nbsp;
+    Deslocamento Vertical Extra:
+    <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="ySliderTwo">
+  </div>
+  </body>
+</html>
