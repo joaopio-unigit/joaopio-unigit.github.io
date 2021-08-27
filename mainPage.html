@@ -1,43 +1,88 @@
 <html>
 <head>
     <style>
+        .flex-container {
+            display: flex;
+        }
+        .flex-child {
+            flex: 1;
+            height: 600px;
+            position: relative;
+            border: 3px dotted;
+            border-radius: 25px; 
+            border-color: rgb(147, 167, 255);
+            background-color: black;
+        }
+        .flex-child:first-child {
+            margin-right: 20px;
+        }
+        .flex-child:last-child{
+            margin-left: 20px;
+        }
         .center {
             margin: 0;
             position: absolute;
-            top: 50%;
+            top: 87%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
         }
-        .container {
-            left: 25%;
-            height: 30%;
-            width: 50%;
-            position: relative;
-            border: 3px solid green; 
+        .goButton{
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            border: 3px solid grey;
+            transition-duration: 0.25s;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+        }
+        .goButton:hover{
+            background-color: black;
+            color: white;
+        }
+        .images{
+            margin: 0;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            border: 3px solid;
+            border-radius: 25px; 
+            border-color: grey;
         }
     </style>
 </head>
-</head>
-<body style="background-color: black;">
- 
-    <div class="container">
-        <a class="center" href="http://www.google.com/">
-            <button>Oscilloscope</button>
-        </a>
-    </div>
+<body style="background-color: black; background-image: url(background.png); background-repeat: no-repeat; background-size: cover;">
+    <br>
+    <h1 style="color: white; font-family: Arial, Helvetica, sans-serif;
+    font-size: 500%; text-align:center; font-weight: bold;">Welcome!!</h1>
 
-    <div class="container">
-        <a class="center" href="https://joaopio-unigit.github.io/Rodinhas/radiovan.html">
-            <button>Wheelies</button>
-        </a>
-    </div>
+    <div class="flex-container">
+        
+        <div class="flex-child">
+            <h1 style="font-weight: bold; color: white; font-family: Arial, Helvetica, sans-serif; text-align:center; ">Oscilloscope</h1>
+            <img class="images" src="Oscilloscope.png" width="500" height="400">
+            <a class="center" href="https://joaopio-unigit.github.io/Oscilloscope/oscilloscope.html">
+                <button class="goButton">Start</button>
+            </a>
+        </div>
     
-    <div class="container">
-        <a class="center" href="http://www.google.com/">
-            <button>Shapes & Views</button>
-        </a>
+        <div class="flex-child">
+            <h1 style="font-weight: bold; color: white; font-family: Arial, Helvetica, sans-serif; text-align:center; ">Wheelies</h1>
+            <img class="images" src="Wheelies.png" width="500" height="400">
+            <a class="center" href=https://joaopio-unigit.github.io/Wheelies/radiovan.html>
+                <button class="goButton">Start</button>
+            </a>
+        </div>
+
+        <div class="flex-child">
+            <h1 style="font-weight: bold; color: white; font-family: Arial, Helvetica, sans-serif; text-align:center; ">Shapes & Views</h1>
+            <img class="images" src="Shapes&Views.png" width="500" height="400">
+            <a class="center" href="https://joaopio-unigit.github.io/Shapes & Views/shapes&views.html">
+                <button class="goButton">Start</button>
+            </a>
+        </div>
     </div>
-</div>
 </body>
 </html>
