@@ -2,16 +2,16 @@ const ORTHO = "ortho";
 const PERSP = "persp";
 const AXONO = "axono";
 
-const ORTHO1 = "Alçado Principal";
-const ORTHO2 = "Planta";
-const ORTHO3 = "Alçado Lateral Direito";
+const ORTHO1 = "Main Elevation";
+const ORTHO2 = "Plant";
+const ORTHO3 = "Right Side Elevation";
 
-const AXONO1 = "Isometria";
-const AXONO2 = "Dimetria";
-const AXONO3 = "Trimetria";
-const AXONO4 = "Axonometria Livre";
+const AXONO1 = "Isometry";
+const AXONO2 = "Dimetry";
+const AXONO3 = "Trimetry";
+const AXONO4 = "Free Axonometry";
 
-const PERSP1 = "Perspetiva";
+const PERSP1 = "Perspective";
 
 const ON = "On";
 const OFF = "Off";
@@ -19,15 +19,20 @@ const OFF = "Off";
 const FILLED = "Filled";
 const WIREF = "WireFrame";
 
-const CONTROLSMESSAGE = "Projeções:\n" +                                                                      
-                        "Tecla 1 - " + ORTHO1 + "                   " + "Tecla 5 - " + AXONO2 + "\n" + 
-                        "Tecla 2 - " + ORTHO2 + "                                   " + "Tecla 6 - " + AXONO3 + "\n" +
-                        "Tecla 3 - " + ORTHO3 + "          " + "Tecla 7 - " + AXONO4 + "\n" + 
-                        "Tecla 4 - " + AXONO1 + "                              " + "Tecla 8 - " + PERSP1 + "\n" +
-                        "Efeitos:\n" + 
-                        "Tecla Z - zBuffer                  Tecla B - Back Face Culling\n" +
-                        "Tecla W - WiredFrame         Tecla F - Filled\n" + 
-                        "Tecla L - Ligar/Desligar Iluminação";
+const CONTROLSMESSAGE = "Projections:\n" +                                                                      
+                        "Key 1 - " + ORTHO1 + "\n" +
+                        "Key 2 - " + ORTHO2 + "\n" + 
+                        "Key 3 - " + ORTHO3 + "\n" + 
+                        "Key 4 - " + AXONO1 + "\n" + 
+                        "Key 5 - " + AXONO2 + "\n" + 
+                        "Key 6 - " + AXONO3 + "\n" +
+                        "Key 7 - " + AXONO4 + "\n" + 
+                        "Key 8 - " + PERSP1 + "\n" +
+                        "\nIn " + PERSP1 + " you can grab and rotate the object and zoom in and out with scroll wheel.\n" +
+                        "\nEffects:\n" + 
+                        "Key Z - zBuffer                  Key B - Back Face Culling\n" +
+                        "Key W - WiredFrame         Key F - Filled\n" + 
+                        "Key L - On/Off Illumination";
 
 const AI = BI = 30 * Math.PI/180;
 
