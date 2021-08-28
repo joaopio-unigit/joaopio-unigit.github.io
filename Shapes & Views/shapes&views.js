@@ -81,6 +81,13 @@ window.onresize = function() {
     fit_canvas_to_window();
 }
 
+/*
+THIS CODE HAS BEEN DEVELOPED BY JOAO PIO
+CONTACT ME AT:
+jpbp.pio@gmail.com
+https://www.linkedin.com/in/jpio-eng/
+*/
+
 window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
     gl = WebGLUtils.setupWebGL(canvas);

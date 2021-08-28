@@ -108,6 +108,13 @@ window.onload = function init() {
   render();
 };
 
+/*
+THIS CODE HAS BEEN DEVELOPED BY JOAO PIO
+CONTACT ME AT:
+jpbp.pio@gmail.com
+https://www.linkedin.com/in/jpio-eng/
+*/
+
 function render() {
   gl.clear(gl.COLOR_BUFFER_BIT);
   
