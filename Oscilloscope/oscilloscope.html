@@ -123,7 +123,7 @@
     <script type="text/javascript" src="oscilloscope.js"></script>
   </head>
   <body>
-    <title>Triangle</title>
+    <title>oscilloscope</title>
     <div style="text-align: center">
     <canvas id="gl-canvas" width="720" height="480">
       Oops... your browser doesn't support the HTML5 canvas element"
@@ -131,7 +131,7 @@
     <p></p>
       <INPUT TYPE="button" NAME="button3" VALUE="ON/OFF" SIZE=10 OnClick="onOffFunction()">
     &nbsp;&nbsp;
-    Eixo Horizontal: 
+    Horizontal Axis: 
     <select id="selectHorizontal">
       <option value="0">Time</option>
       <option value="1">C4</option>
@@ -149,7 +149,7 @@
     Secs/Div:
     <input type="range" min="0" max="15" value="9.0" step="1" id="secsListSlider">
     <p></p>
-    Eixo Vertical:
+    Vertical Axis:
     <select id="select">
       <option value="0">C4</option>
       <option value="1">C4 M</option>
@@ -159,13 +159,13 @@
       <option value="5">Time</option>
     </select>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    Deslocamento Horizontal:
+    Horizontal Displacement:
     <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="xSliderOne">
     &nbsp;&nbsp;&nbsp;&nbsp;
-    Deslocamento Vertical:
+    Vertical Displacement:
     <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="ySliderOne">
     <p></p>
-    Eixo Vertical Extra:
+    Extra Vertical Axis:
     <select id="selectExtra">
       <option value="0">None</option>
       <option value="1">C4</option>
@@ -175,10 +175,10 @@
       <option value="5">B4/F5</option>
     </select>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    Deslocamento Horizontal Extra:
+    Extra Horizontal Displacement:
     <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="xSliderTwo">
     &nbsp;&nbsp;&nbsp;
-    Deslocamento Vertical Extra:
+    Extra Vertical Displacement:
     <input type="range" min="-100.0" max="100.0" value="0.0" class="slider" id="ySliderTwo">
   </div>
   </body>
