@@ -17,6 +17,12 @@ const FLOOR_CUBE_SIZE = 0.8;
 const WHEELS_AXIS_DISTANCE = 1.1;
 const MAX_SPEED = 0.5;
 
+const CONTROLSMESSAGE = "Van:\n" +                                                                      
+                        "AWSD for the van movement\n" +
+                        "IJKL for the antenna movement\n" + 
+                        "1,2,3,4,9,0 for the camera options\n" + 
+                        "Space bar for special effect\n";
+
 var time = 0;
 var speed = 10;
 
@@ -468,4 +474,8 @@ function vanBody(){
         multTranslation([11.0, 0.0, 0.0]);
         gl.uniformMatrix4fv(mModelViewLoc, false, flatten(modelView));
         cylinderDraw(gl, program);
+}
+
+function showControls(){
+    alert(CONTROLSMESSAGE);
 }
