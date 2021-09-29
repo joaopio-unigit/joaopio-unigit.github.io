@@ -1,0 +1,156 @@
+<html>
+<head>
+    <title>
+        IPM
+    </title>
+    <style>
+        div.text{
+            position: fixed;
+            top: 100px;
+            left: 50px;
+        }
+        button.link{
+            background:none;
+            border:none;
+            font-size: 100%;
+            font-weight: bold;
+        }
+
+        .sliderOut {
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0;
+            right:-100%;
+            background-color:#000;
+            color:#fff;
+            transition:0.4s ease;
+        }
+
+        .sliderIn {
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0;
+            right:-50%;
+            background-color:#000;
+            color:#fff;
+            transition:0.4s ease;
+        }
+
+        .sliderOutAlunos {
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0;
+            right:-100%;
+            background-color:steelblue;
+            color:#fff;
+            transition:0.4s ease;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+
+        .sliderInAlunos {
+            width:50%;
+            height:100%;
+            position:absolute;
+            top:0;
+            right:0%;
+            background-color: steelblue;
+            color:#fff;
+            transition:0.4s ease;
+
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            grid-gap: 20px;
+        }
+
+    </style>
+</head>
+</html>
+<body style="background-color: darkgrey; overflow: hidden;">
+    <div id="mainPage" class="text">
+        <h1 style="color: black; position: fixed; top: -30px; font-size:500%; font-weight:bold;"> IPM </h1>
+        <h1 style="color: black; font-size: 100%; font-weight:bold;">Turno p2</h1>
+        <br>
+        <br>
+        <br>
+        <ul>
+            <li style="font-size: 150%; font-weight: bold;">
+                <button id="alunos" class="link">Alunos</button>
+            </li>
+            <li style="font-size: 150%; font-weight: bold;">
+                <button id="projeto" class="link">Projeto</button>
+            </li>
+        </ul>  
+    </div>
+    <div class="sliderOutAlunos" id="sliderAlunos">
+        <div class="grid-child purple">
+            Grid Column 1 Row 1
+        </div>
+    
+        <div class="grid-child green">
+            Grid Column 2 Row 1
+        </div>
+        <div class="grid-child purple">
+            Grid Column 1 Row 2
+        </div>
+    
+        <div class="grid-child green">
+            Grid Column 2 Row 2
+        </div>
+    </div>
+    <div class="sliderOut" id="sliderProjeto">
+        Welcome!
+    </div>
+    
+    <script>
+        document.addEventListener("click", function(e) {
+            document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");   
+            document.getElementById("sliderAlunos").setAttribute("class", "sliderOutAlunos");
+            console.log("mainPage Click");
+        });
+
+        var alunosButton = document.getElementById("alunos");
+        alunosButton.addEventListener("click", function(e) {
+            e.stopPropagation();
+            var sliderAlunos = document.getElementById("sliderAlunos");
+            
+            if(sliderAlunos.className == "sliderInAlunos")
+                sliderAlunos.setAttribute("class", "sliderOutAlunos");
+            else
+                sliderAlunos.setAttribute("class", "sliderInAlunos");
+                
+            document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");
+            console.log("alunos Click");
+        });
+
+        var projetoButton = document.getElementById("projeto");
+        projetoButton.addEventListener("click", function(e) {
+            e.stopPropagation();
+            var sliderProjeto = document.getElementById("sliderProjeto");
+
+            if(sliderProjeto.className == "sliderIn")
+                sliderProjeto.setAttribute("class", "sliderOut");
+            else
+                sliderProjeto.setAttribute("class", "sliderIn");
+
+            document.getElementById("sliderAlunos").setAttribute("class", "sliderOutAlunos");
+            console.log("projeto Click");
+        });
+
+        var sliderAlunos = document.getElementById("sliderAlunos");
+        sliderAlunos.addEventListener("click", function(e) {
+            e.stopPropagation();
+        });
+
+        var sliderProjeto = document.getElementById("sliderProjeto");
+        sliderProjeto.addEventListener("click", function(e) {
+            e.stopPropagation();
+        });
+
+    </script>
+</body>
