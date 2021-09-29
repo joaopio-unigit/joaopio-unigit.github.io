@@ -18,7 +18,7 @@
 
         .sliderOut {
             width:100%;
-            height:100%;
+            height:10000%;
             position:absolute;
             top:0;
             right:-100%;
@@ -29,7 +29,7 @@
 
         .sliderIn {
             width:100%;
-            height:100%;
+            height:10000%;
             position:absolute;
             top:0;
             right:-50%;
@@ -39,12 +39,12 @@
         }
 
         .sliderOutAlunos {
-            width:100%;
+            width:50%;
             height:100%;
-            position:absolute;
+            position:fixed;
             top:0;
             right:-100%;
-            background-color:steelblue;
+            background-color:slategrey;
             color:#fff;
             transition:0.4s ease;
 
@@ -56,24 +56,24 @@
         .sliderInAlunos {
             width:50%;
             height:100%;
-            position:absolute;
+            position:fixed;
             top:0;
             right:0%;
-            background-color: steelblue;
+            background-color: slategrey;
             color:#fff;
             transition:0.4s ease;
 
             display: grid;
-            grid-template-columns: 2fr 2fr;
-            grid-gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 45px;
         }
 
     </style>
 </head>
 </html>
-<body style="background-color: darkgrey; overflow: hidden;">
+<body id="body" style="background-color: slategrey; overflow: hidden;">
     <div id="mainPage" class="text">
-        <h1 style="color: black; position: fixed; top: -30px; font-size:500%; font-weight:bold;"> IPM </h1>
+        <h1 style="color: black; position: fixed; top: -30px; font-size:450%; font-weight:bold;"> Interação Pessoa-Máquina</h1>
         <h1 style="color: black; font-size: 100%; font-weight:bold;">Turno p2</h1>
         <br>
         <br>
@@ -89,29 +89,33 @@
     </div>
     <div class="sliderOutAlunos" id="sliderAlunos">
         <div class="grid-child purple">
-            Grid Column 1 Row 1
+            <img style="margin-top: 10%; margin-left: 5%;" src="jpio.jpeg" width=90% height="70%" >
+            <h4 style="margin-left: 5%;">João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
     
         <div class="grid-child green">
-            Grid Column 2 Row 1
+            <img style="margin-top: 10%;" src="jpio.jpeg" width=90% height="70%">
+            <h4>João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
         <div class="grid-child purple">
-            Grid Column 1 Row 2
+            <img style="margin-left: 5%;" src="jpio.jpeg" width=90% height="70%">
+            <h4 style="margin-left: 5%;"> João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
     
         <div class="grid-child green">
-            Grid Column 2 Row 2
+            <img class="images" src="jpio.jpeg" width=90% height="70%">
+            <h4>João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
     </div>
     <div class="sliderOut" id="sliderProjeto">
-        Welcome!
+        Página para projeto(?)
     </div>
-    
+
     <script>
         document.addEventListener("click", function(e) {
             document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");   
             document.getElementById("sliderAlunos").setAttribute("class", "sliderOutAlunos");
-            console.log("mainPage Click");
+            document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden;");
         });
 
         var alunosButton = document.getElementById("alunos");
@@ -125,7 +129,7 @@
                 sliderAlunos.setAttribute("class", "sliderInAlunos");
                 
             document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");
-            console.log("alunos Click");
+            document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden;");
         });
 
         var projetoButton = document.getElementById("projeto");
@@ -139,7 +143,7 @@
                 sliderProjeto.setAttribute("class", "sliderIn");
 
             document.getElementById("sliderAlunos").setAttribute("class", "sliderOutAlunos");
-            console.log("projeto Click");
+            document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow-y: scroll; overflow-x: hidden");
         });
 
         var sliderAlunos = document.getElementById("sliderAlunos");
