@@ -89,21 +89,21 @@
     </div>
     <div class="sliderOutAlunos" id="sliderAlunos">
         <div class="grid-child purple">
-            <img style="margin-top: 10%; margin-left: 5%;" src="jpio.jpeg" width=90% height="70%" >
+            <img id="topLeft" style="margin-top: 10%; margin-left: 5%;" src="jpio.jpeg" width=90% height="70%" >
             <h4 style="margin-left: 5%;">André Francisco Rosa Matos - 55358<br>afr.matos@campus.fct.unl.pt</h4>
         </div>
     
         <div class="grid-child green">
-            <img style="margin-top: 10%;" src="jpio.jpeg" width=90% height="70%">
+            <img id="topRight" style="margin-top: 10%;" src="jpio.jpeg" width=90% height="70%">
             <h4>João Pedro Lourenço da Palma - 55414<br>jp.palma@campus.fct.unl.pt</h4>
         </div>
         <div class="grid-child purple">
-            <img style="margin-left: 5%;" src="jpio.jpeg" width=90% height="70%">
+            <img id="botLeft" style="margin-left: 5%;" src="jpio.jpeg" width=90% height="70%">
             <h4 style="margin-left: 5%;"> Beatriz Alexandra da Paz Baptista Martins dos Santos - 55411<br>bap.santos@campus.fct.unl.pt</h4>
         </div>
     
         <div class="grid-child green">
-            <img class="images" src="jpio.jpeg" width=90% height="70%">
+            <img id="botRight"src="jpio.jpeg" width=90% height="70%">
             <h4>João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
     </div>
@@ -121,6 +121,22 @@
         var alunosButton = document.getElementById("alunos");
         alunosButton.addEventListener("click", function(e) {
             e.stopPropagation();
+
+            var imageHeight = screen.height * 0.3;
+
+            document.getElementById("topLeft").setAttribute("height", imageHeight);
+            document.getElementById("topLeft").setAttribute("width", imageHeight + (imageHeight*20/100));
+
+            document.getElementById("topRight").setAttribute("height", imageHeight);
+            document.getElementById("topRight").setAttribute("width", imageHeight + (imageHeight*20/100));
+
+            document.getElementById("botLeft").setAttribute("height", imageHeight);
+            document.getElementById("botLeft").setAttribute("width", imageHeight + (imageHeight*20/100));
+
+            document.getElementById("botRight").setAttribute("height", imageHeight);
+            document.getElementById("botRight").setAttribute("width", imageHeight + (imageHeight*20/100));
+
+
             var sliderAlunos = document.getElementById("sliderAlunos");
             
             if(sliderAlunos.className == "sliderInAlunos")
