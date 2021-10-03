@@ -51,6 +51,7 @@
             display: grid;
             grid-template-columns: [first-column-start] 50% [second-column-start] 50% [column-end];
             grid-template-rows: [first-row-start] 50% [second-row-start] 50% [row-end];
+
         }
 
         .sliderInAlunos {
@@ -147,10 +148,9 @@
         var alunosButton = document.getElementById("alunos");
         alunosButton.addEventListener("click", function(e) {
             e.stopPropagation();
-            
+                        
             //CASO VISIVEL FECHAR O SEPARADOR DO PROJETO
             document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");
-            
             var sliderAlunos = document.getElementById("sliderAlunos");
             
             if(sliderAlunos.className == "sliderInAlunos"){ //FECHAR O SEPARADOR
