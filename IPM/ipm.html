@@ -32,7 +32,7 @@
             height:10000%;
             position:absolute;
             top:0;
-            right:-50%;
+            right:0%;
             background-color:#000;
             color:#fff;
             transition:0.4s ease;
@@ -41,31 +41,56 @@
         .sliderOutAlunos {
             width:50%;
             height:100%;
-            position:fixed;
+            position:absolute;
             top:0;
             right:-100%;
-            background-color:slategrey;
+            background-color: transparent;
             color:#fff;
             transition:0.4s ease;
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px;
+            grid-template-columns: [first-column-start] 50% [second-column-start] 50% [column-end];
+            grid-template-rows: [first-row-start] 50% [second-row-start] 50% [row-end];
         }
 
         .sliderInAlunos {
             width:50%;
             height:100%;
-            position:fixed;
+            position:absolute;
             top:0;
             right:0%;
-            background-color: slategrey;
+            background-color: transparent;
             color:#fff;
             transition:0.4s ease;
 
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 45px;
+            grid-template-columns: [first-column-start] 50% [second-column-start] 50% [column-end];
+            grid-template-rows: [first-row-start] 50% [second-row-start] 50% [row-end];
+        }
+
+        .itemA{
+            grid-column-start: first-column-start;
+            grid-column-end: second-column-start;
+            grid-row-start: first-row-start;
+            grid-row-end: second-row-start;
+        }
+        .itemB{
+            grid-column-start: second-column-start;
+            grid-column-end: column-end;
+            grid-row-start: first-row-start;
+            grid-row-end: second-row-start;
+        }
+        .itemC{
+            grid-column-start: first-column-start;
+            grid-column-end: second-column-start;
+            grid-row-start: second-row-start;
+            grid-row-end: row-end;
+        }
+        .itemD{
+            grid-column-start: second-column-start;
+            grid-column-end: column-end;
+            grid-row-start: second-row-start;
+            grid-row-end: row-end;
         }
 
     </style>
@@ -88,63 +113,79 @@
         </ul>  
     </div>
     <div class="sliderOutAlunos" id="sliderAlunos">
-        <div class="grid-child purple">
-            <img style="margin-top: 10%; margin-left: 5%;" src="jpio.jpeg" width=90% height="70%" >
-            <h4 style="margin-left: 5%;">André Francisco Rosa Matos - 55358<br>afr.matos@campus.fct.unl.pt</h4>
+        <div class="itemA">
+            <img style="margin-top: 10%; margin-left: 20%;" src="jpio.jpeg" width=70% height="50%">
+            <h4 style="margin-left: 20%;">André Francisco Rosa Matos - 55358<br>afr.matos@campus.fct.unl.pt</h4>
         </div>
     
-        <div class="grid-child green">
-            <img style="margin-top: 10%;" src="jpio.jpeg" width=90% height="70%">
-            <h4>João Pedro Lourenço da Palma - 55414<br>jp.palma@campus.fct.unl.pt</h4>
+        <div class="itemB">
+            <img style="margin-top: 10%; margin-left: 15%;" src="jpio.jpeg" width=70% height="50%">
+            <h4 style="margin-left: 15%;">João Pedro Lourenço da Palma - 55414<br>jp.palma@campus.fct.unl.pt</h4>
         </div>
-        <div class="grid-child purple">
-            <img style="margin-left: 5%;" src="jpio.jpeg" width=90% height="70%">
-            <h4 style="margin-left: 5%;"> Beatriz Alexandra da Paz Baptista Martins dos Santos - 55411<br>bap.santos@campus.fct.unl.pt</h4>
+        <div class="itemC">
+            <img style="margin-left: 20%;" src="jpio.jpeg" width=70% height="50%">
+            <h4 style="margin-left: 20%;"> Beatriz Alexandra da Paz Baptista Martins dos Santos - 55411<br>bap.santos@campus.fct.unl.pt</h4>
         </div>
     
-        <div class="grid-child green">
-            <img class="images" src="jpio.jpeg" width=90% height="70%">
-            <h4>João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
+        <div class="itemD">
+            <img style="margin-left: 15%;" class="images" src="jpio.jpeg" width=70% height="50%">
+            <h4 style="margin-left: 15%;">João Pedro Bordadágua Pio - 55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
     </div>
     <div class="sliderOut" id="sliderProjeto">
-        Página para projeto(?)
+        <h1 id="xButton">X</h1>
+        <h1 style="text-align: center;"> Cenas do Projeto</h1>
     </div>
 
     <script>
         document.addEventListener("click", function(e) {
-            document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");   
             document.getElementById("sliderAlunos").setAttribute("class", "sliderOutAlunos");
             document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden;");
         });
 
+        //CARREGAR NO BOTAO ALUNOS
         var alunosButton = document.getElementById("alunos");
         alunosButton.addEventListener("click", function(e) {
             e.stopPropagation();
+            
+            //CASO VISIVEL FECHAR O SEPARADOR DO PROJETO
+            document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");
+            
             var sliderAlunos = document.getElementById("sliderAlunos");
             
-            if(sliderAlunos.className == "sliderInAlunos")
+            if(sliderAlunos.className == "sliderInAlunos"){ //FECHAR O SEPARADOR
                 sliderAlunos.setAttribute("class", "sliderOutAlunos");
-            else
+                document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden");
+            }
+            else{                                           //ABRIR O SEPARADOR
                 sliderAlunos.setAttribute("class", "sliderInAlunos");
-                
-            document.getElementById("sliderProjeto").setAttribute("class", "sliderOut");
-            document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden;");
+                document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden");
+            }
         });
 
+        //CARREGAR NO BOTAO PROJETO
         var projetoButton = document.getElementById("projeto");
         projetoButton.addEventListener("click", function(e) {
             e.stopPropagation();
-            var sliderProjeto = document.getElementById("sliderProjeto");
 
-            if(sliderProjeto.className == "sliderIn")
-                sliderProjeto.setAttribute("class", "sliderOut");
-            else
-                sliderProjeto.setAttribute("class", "sliderIn");
-
+            //CASO VISIVEL FECHAR O SEPARADOR DOS ALUNOS
             document.getElementById("sliderAlunos").setAttribute("class", "sliderOutAlunos");
+
+            var sliderProjeto = document.getElementById("sliderProjeto");
+            
+            //ABRIR O SEPARADOR
+            sliderProjeto.setAttribute("class", "sliderIn");
             document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow-y: scroll; overflow-x: hidden");
+            document.getElementById("xButton").setAttribute("style", "position: fixed; right: 30px; display: block; font-family: Verdana, sans-serif; font-size: 125%;");
         });
+
+        //CARREGAR NO CRUZ
+        var xButton = document.getElementById("xButton");
+        xButton.addEventListener("click", function(e) {
+            sliderProjeto.setAttribute("class", "sliderOut");
+            document.getElementById("body").setAttribute("style", "background-color: slategrey; overflow: hidden");
+            document.getElementById("xButton").setAttribute("style", "position: fixed; right: 30px; display: none;");
+        });  
 
         var sliderAlunos = document.getElementById("sliderAlunos");
         sliderAlunos.addEventListener("click", function(e) {
