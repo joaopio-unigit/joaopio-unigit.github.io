@@ -33,7 +33,7 @@
             position:absolute;
             top:0;
             right:0%;
-            background-color:#000;
+            background-color:rgb(141, 168, 215);
             color:#fff;
             transition:0.4s ease;
         }
@@ -94,27 +94,45 @@
             grid-row-end: row-end;
         }
 
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid #FFFF00;
+            padding: 10px;
+        }
+
     </style>
 </head>
 </html>
 <body id="body" style="background-color: slategrey; overflow: hidden;">
-    <div id="mainPage" class="text">
-        <h1 style="color: black; position: fixed; top: -30px; font-size:450%; font-weight:bold;"> Interação Pessoa-Máquina</h1>
-        <h1 style="color: black; font-size: 100%; font-weight:bold;">Turno p2</h1>
+    <div id="mainPage" class="text" style="color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif">
+        <h1 style = "position:fixed; top: -30px; font-size:450%; font-weight:bold;"> Interação Pessoa-Máquina</h1>
         <br>
+        <h3 style="font-weight:bold; color:rgb(55, 55, 59)">Turno P2</h3>
         <br>
-        <br>
-        <ul>
-            <li style="font-size: 150%; font-weight: bold;">
-                <button id="alunos" class="link">Alunos</button>
-            </li>
-            <li style="font-size: 150%; font-weight: bold;">
-                <button id="projeto" class="link">Projeto</button>
-            </li>
-        </ul>
-        <a href="joaopio-1.pdf" style="color: black; font-weight: bold;">Assignment 1 - João Pio</a>
-        <br>
-        <a href="beatrizsantos-1.pdf" style="color: black; font-weight: bold;">Assignment 1 - Beatriz Santos</a>
+        <div>
+                <button style= "display:inline; font-size:150%; color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif" id="alunos" class="link">Alunos</button>
+                <button style= "display:inline; font-size:150%; color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif" id="projeto" class="link">Projeto</button>
+        </div>
+        <br>  
+        <div>
+            <h4  style= "color:rgb(55, 55, 59); font-family:Verdana, Geneva, Tahoma, sans-serif">
+                Assignment 1
+            </h4>
+            <ul>
+                <li>
+                    <a style= "color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;" href="joaopio-1.pdf">João Pio</a>
+                </li>
+                <li>
+                    <a style= "color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;" href="beatrizsantos-1.pdf">Beatriz Santos</a>
+                </li>
+            </ul>
+        </div>
+        
+   
+       
         
     </div>
     <div class="sliderOutAlunos" id="sliderAlunos">
@@ -137,9 +155,16 @@
             <h4 style="margin-left: 15%;">João Pedro Bordadágua Pio<br>55247<br>j.pio@campus.fct.unl.pt</h4>
         </div>
     </div>
-    <div class="sliderOut" id="sliderProjeto">
+    <div class="sliderOut" id="sliderProjeto" style="background-image: url(pet-care-header.jpg);">
         <h1 id="xButton">X</h1>
-        <h1 style="text-align: center;"> Cenas do Projeto</h1>
+        <h1 style="text-align: center; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 400%; color:#000"> DogGo </h1>
+        <br>
+            <p style="text-align: center;">
+                <a style= "color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 200%;" href="G_12_stage1.pdf"> Stage 1</a>
+            </p>
+            <p style = "text-align: center;">
+                <a style= "color:aliceblue; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: bold; font-size: 200%;" href="G_12_stage2.pdf"> Stage 2</a>
+            </p>
     </div>
 
     <script>
