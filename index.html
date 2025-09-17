@@ -1,1 +1,236 @@
-<h1>Hello</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bill Buddy AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: Inter, sans-serif;
+      background: #fafafa;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+    }
+    header {
+      text-align: center;
+    }
+    header img {
+      max-width: 200px; /* limit logo size */
+      height: auto;
+    }
+    .catchphrase {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .grid {
+      margin-top: 1cm;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .box h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .box p {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #555;
+    }
+    .meta {
+      font-size: 12px;
+      color: #888;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      max-width: 800px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-content h2 {
+      margin-bottom: 8px;
+    }
+    .modal-content p {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #ff4d4d;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .modal-content a {
+      color: #3882bd;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .info-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #3882bd;
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.2s ease;
+    }
+    .info-btn:hover {
+      background: #004c99;
+    }
+    #modalSummary {
+      text-align: justify;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="./billbuddyai.png" alt="Header">
+    </header>
+    <p class="catchphrase">Simplifying policy and laws — one bill at a time.</p>
+    <section class="grid" id="newsGrid">
+      <!-- News boxes will be inserted here dynamically -->
+    </section>
+  </div>
+
+  <div class="modal" id="newsModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">X</button>
+      <h2 id="modalTitle"></h2>
+      <p><strong>Type:</strong> <span id="modalType"></span></p>
+      <p><strong>Date:</strong> <span id="modalDate"></span></p>
+      <p id="modalSummary"></p>
+      <p><a id="modalPdf" href="#" target="_blank">Read Full PDF</a></p>
+    </div>
+  </div>
+
+   <!-- About Modal -->
+  <div class="modal" id="aboutModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="document.getElementById('aboutModal').style.display='none'">X</button>
+      <h2>About</h2>
+      <p>Bill Buddy AI delivers clear, daily updates on some of the newest laws, bills, and Federal Reserve documents. We use advanced AI to summarize complex policies into simple, actionable insights — so you can stay informed without the jargon.</p>
+    </div>
+  </div>
+
+  <!-- Floating Info Button -->
+  <button class="info-btn" onclick="document.getElementById('aboutModal').style.display='flex'">i</button>
+
+  <script>
+    async function loadNews() {
+      try {
+
+        const response = await fetch('bills/bills.json');
+        const files = await response.json();
+        const grid = document.getElementById('newsGrid');
+        grid.innerHTML = '';
+
+        for (const file of files) {
+          const res = await fetch(file);
+          const news = await res.json();
+
+          const box = document.createElement('div');
+          box.classList.add('box');
+          box.innerHTML = `
+            <h2>${news.title}</h2>
+            <p>${news.summary.substring(0, 100)}...</p>
+            <div class="meta">${news.date} | ${news.type}</div>
+          `;
+
+          box.addEventListener('click', () => {
+            document.getElementById('modalTitle').textContent = news.title;
+            document.getElementById('modalType').textContent = news.type;
+            document.getElementById('modalDate').textContent = news.date;
+            document.getElementById('modalSummary').textContent = news.summary;
+            document.getElementById('modalPdf').href = news.url;
+            document.getElementById('newsModal').style.display = 'flex';
+          });
+
+          grid.appendChild(box);
+        }
+      } catch (error) {
+        console.error('Error loading news:', error);
+      }
+    }
+
+    document.getElementById('closeModal').addEventListener('click', () => {
+      document.getElementById('newsModal').style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('newsModal')) {
+        document.getElementById('newsModal').style.display = 'none';
+      }
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('aboutModal')) {
+        document.getElementById('aboutModal').style.display = 'none';
+      }
+    });
+
+    loadNews();
+  </script>
+</body>
+</html>
