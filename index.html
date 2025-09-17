@@ -119,6 +119,12 @@
       text-decoration: none;
       font-weight: bold;
     }
+    @media (max-width: 600px) {
+      .modal-content {
+        max-height: 80vh;
+        border-radius: 12px;
+      }
+    }
     .info-btn {
       position: fixed;
       bottom: 20px;
@@ -206,6 +212,7 @@
             document.getElementById('modalSummary').textContent = news.summary;
             document.getElementById('modalPdf').href = news.url;
             document.getElementById('newsModal').style.display = 'flex';
+            document.querySelector('#newsModal .modal-content').scrollTop = 0;
           });
 
           grid.appendChild(box);
