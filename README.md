@@ -35,7 +35,7 @@ Alongside Bill Buddy AI, you’ll also find two collections of work from my univ
 
 ## ⚡ About This Repo  
 
-- 🧑‍💻 Maintained by: *João Pio*  
+- 🧑‍💻 Maintained by: [*João Pio*](https://www.linkedin.com/in/jpio-eng/)
 - 🔄 Automated with: **Python**, **GitHub Actions**, **CRON**  
 - 🎯 Focus: Bridging automation, AI, and accessibility  
 
