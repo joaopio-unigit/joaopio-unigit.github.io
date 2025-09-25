@@ -139,14 +139,36 @@
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
     .info-btn:hover {
       background: #004c99;
+      transform: scale(1.1);
     }
     #modalSummary {
       text-align: justify;
       white-space: pre-line;
+    }
+    .show-more-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    #showMoreBtn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #3882bd;
+      color: #fff;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    #showMoreBtn:hover {
+      background: #004c99;
+      transform: scale(1.1);
     }
   </style>
 </head>
@@ -159,6 +181,9 @@
     <section class="grid" id="newsGrid">
       <!-- News boxes will be inserted here dynamically -->
     </section>
+    <div class="show-more-container">
+      <button id="showMoreBtn">⬇</button>
+    </div>
   </div>
 
   <div class="modal" id="newsModal">
@@ -186,40 +211,58 @@
   <button class="info-btn" onclick="document.getElementById('aboutModal').style.display='flex'">i</button>
 
   <script>
+    let allFiles = [];
+    let currentIndex = 0;
+    const pageSize = 9;
+    const loadMoreSize = 6;
+
     async function loadNews() {
       try {
-
         const response = await fetch('bills/bills.json');
-        const files = await response.json();
-        const grid = document.getElementById('newsGrid');
-        grid.innerHTML = '';
-
-        for (const file of files) {
-          const res = await fetch(file);
-          const news = await res.json();
-
-          const box = document.createElement('div');
-          box.classList.add('box');
-          box.innerHTML = `
-            <h2>${news.title}</h2>
-            <p>${news.summary.substring(0, 100)}...</p>
-            <div class="meta">${news.date} | ${news.type}</div>
-          `;
-
-          box.addEventListener('click', () => {
-            document.getElementById('modalTitle').textContent = news.title;
-            document.getElementById('modalType').textContent = news.type;
-            document.getElementById('modalDate').textContent = news.date;
-            document.getElementById('modalSummary').textContent = news.summary;
-            document.getElementById('modalPdf').href = news.url;
-            document.getElementById('newsModal').style.display = 'flex';
-            document.querySelector('#newsModal .modal-content').scrollTop = 0;
-          });
-
-          grid.appendChild(box);
-        }
+        allFiles = await response.json();
+        currentIndex = 0;
+        document.getElementById('newsGrid').innerHTML = '';
+        loadNextBatch(pageSize);
       } catch (error) {
         console.error('Error loading news:', error);
+      }
+    }
+
+    async function loadNextBatch(count) {
+      const grid = document.getElementById('newsGrid');
+      const slice = allFiles.slice(currentIndex, currentIndex + count);
+
+      for (const file of slice) {
+        const res = await fetch(file);
+        const news = await res.json();
+
+        const box = document.createElement('div');
+        box.classList.add('box');
+        box.innerHTML = `
+          <h2>${news.title}</h2>
+          <p>${news.summary.substring(0, 100)}...</p>
+          <div class="meta">${news.date} | ${news.type}</div>
+        `;
+
+        box.addEventListener('click', () => {
+          document.getElementById('modalTitle').textContent = news.title;
+          document.getElementById('modalType').textContent = news.type;
+          document.getElementById('modalDate').textContent = news.date;
+          document.getElementById('modalSummary').textContent = news.summary;
+          document.getElementById('modalPdf').href = news.url;
+          document.getElementById('newsModal').style.display = 'flex';
+          document.querySelector('#newsModal .modal-content').scrollTop = 0;
+        });
+
+        grid.appendChild(box);
+      }
+
+      currentIndex += slice.length;
+
+      if (currentIndex >= allFiles.length) {
+        document.getElementById('showMoreBtn').style.display = 'none';
+      } else {
+        document.getElementById('showMoreBtn').style.display = 'block';
       }
     }
 
@@ -237,6 +280,10 @@
       if (e.target === document.getElementById('aboutModal')) {
         document.getElementById('aboutModal').style.display = 'none';
       }
+    });
+
+    document.getElementById('showMoreBtn').addEventListener('click', () => {
+      loadNextBatch(loadMoreSize);
     });
 
     loadNews();
