@@ -31,7 +31,7 @@
       text-align: center;
       font-size: 16px;
       font-weight: 500;
-      color: #555;
+      color: black;
       margin-bottom: 20px;
     }
     .grid {
@@ -170,6 +170,29 @@
       background: #004c99;
       transform: scale(1.1);
     }
+    .filter-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filter-container label {
+      font-weight: 500;
+      color: #555;
+      margin-right: 2px;
+    }
+    .filter-container select {
+      padding: 2px 2px;
+      color: #555;
+      font-weight: 500;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+    .filter-container select:hover {
+      border-color: #3882bd;
+    }
   </style>
 </head>
 <body>
@@ -178,6 +201,15 @@
       <img src="./billbuddyai.png" alt="Header">
     </header>
     <p class="catchphrase">Simplifying policy and laws — one bill at a time.</p>
+    <div class="filter-container">
+      <label for="billType">Bill Type:</label>
+      <select id="billType">
+        <option value="all" selected>All</option>
+        <option value="presdocu">Presidential Documents</option>
+        <option value="rule">Rules</option>
+        <option value="notice">Notices</option>
+      </select>
+    </div>
     <section class="grid" id="newsGrid">
       <!-- News boxes will be inserted here dynamically -->
     </section>
@@ -216,9 +248,9 @@
     const pageSize = 9;
     const loadMoreSize = 6;
 
-    async function loadNews() {
+    async function loadNews(file = 'bills/bills.json') {
       try {
-        const response = await fetch('bills/bills.json');
+        const response = await fetch(file);
         allFiles = await response.json();
         currentIndex = 0;
         document.getElementById('newsGrid').innerHTML = '';
@@ -266,10 +298,19 @@
       }
     }
 
+    // Dropdown filter logic
+    document.getElementById('billType').addEventListener('change', (e) => {
+      const type = e.target.value;
+      if (type === 'presdocu') loadNews('bills/presdocu_bills.json');
+      else if (type === 'rule') loadNews('bills/rule_bills.json');
+      else if (type === 'notice') loadNews('bills/notice_bills.json');
+      else loadNews('bills/bills.json');
+    });
+
     document.getElementById('closeModal').addEventListener('click', () => {
       document.getElementById('newsModal').style.display = 'none';
     });
-    
+
     window.addEventListener('click', (e) => {
       if (e.target === document.getElementById('newsModal')) {
         document.getElementById('newsModal').style.display = 'none';
