@@ -1,170 +1,282 @@
-[
-    "bills/05_12_2025_1.json",
-    "bills/05_12_2025_2.json",
-    "bills/05_12_2025_3.json",
-    "bills/04_12_2025_1.json",
-    "bills/04_12_2025_2.json",
-    "bills/04_12_2025_3.json",
-    "bills/03_12_2025_1.json",
-    "bills/03_12_2025_2.json",
-    "bills/03_12_2025_3.json",
-    "bills/02_12_2025_2.json",
-    "bills/02_12_2025_3.json",
-    "bills/02_12_2025_4.json",
-    "bills/01_12_2025_1.json",
-    "bills/01_12_2025_2.json",
-    "bills/01_12_2025_3.json",
-    "bills/28_11_2025_1.json",
-    "bills/28_11_2025_2.json",
-    "bills/28_11_2025_3.json",
-    "bills/26_11_2025_1.json",
-    "bills/26_11_2025_2.json",
-    "bills/26_11_2025_3.json",
-    "bills/25_11_2025_1.json",
-    "bills/25_11_2025_3.json",
-    "bills/25_11_2025_4.json",
-    "bills/24_11_2025_1.json",
-    "bills/24_11_2025_2.json",
-    "bills/24_11_2025_3.json",
-    "bills/21_11_2025_1.json",
-    "bills/21_11_2025_2.json",
-    "bills/21_11_2025_3.json",
-    "bills/20_11_2025_1.json",
-    "bills/20_11_2025_2.json",
-    "bills/20_11_2025_3.json",
-    "bills/19_11_2025_1.json",
-    "bills/19_11_2025_2.json",
-    "bills/19_11_2025_3.json",
-    "bills/18_11_2025_1.json",
-    "bills/18_11_2025_2.json",
-    "bills/18_11_2025_3.json",
-    "bills/17_11_2025_1.json",
-    "bills/17_11_2025_2.json",
-    "bills/17_11_2025_3.json",
-    "bills/14_11_2025_1.json",
-    "bills/14_11_2025_2.json",
-    "bills/14_11_2025_3.json",
-    "bills/13_11_2025_1.json",
-    "bills/13_11_2025_2.json",
-    "bills/13_11_2025_3.json",
-    "bills/12_11_2025_1.json",
-    "bills/12_11_2025_2.json",
-    "bills/12_11_2025_3.json",
-    "bills/10_11_2025_1.json",
-    "bills/10_11_2025_2.json",
-    "bills/10_11_2025_3.json",
-    "bills/07_11_2025_1.json",
-    "bills/07_11_2025_2.json",
-    "bills/07_11_2025_3.json",
-    "bills/06_11_2025_1.json",
-    "bills/06_11_2025_2.json",
-    "bills/06_11_2025_3.json",
-    "bills/05_11_2025_1.json",
-    "bills/05_11_2025_2.json",
-    "bills/05_11_2025_4.json",
-    "bills/04_11_2025_1.json",
-    "bills/04_11_2025_2.json",
-    "bills/04_11_2025_3.json",
-    "bills/03_11_2025_1.json",
-    "bills/03_11_2025_2.json",
-    "bills/03_11_2025_3.json",
-    "bills/31_10_2025_1.json",
-    "bills/31_10_2025_2.json",
-    "bills/31_10_2025_3.json",
-    "bills/30_10_2025_1.json",
-    "bills/30_10_2025_2.json",
-    "bills/30_10_2025_3.json",
-    "bills/29_10_2025_1.json",
-    "bills/29_10_2025_2.json",
-    "bills/29_10_2025_3.json",
-    "bills/28_10_2025_1.json",
-    "bills/28_10_2025_2.json",
-    "bills/28_10_2025_3.json",
-    "bills/27_10_2025_1.json",
-    "bills/27_10_2025_2.json",
-    "bills/27_10_2025_3.json",
-    "bills/24_10_2025_1.json",
-    "bills/24_10_2025_2.json",
-    "bills/24_10_2025_3.json",
-    "bills/23_10_2025_1.json",
-    "bills/23_10_2025_2.json",
-    "bills/23_10_2025_3.json",
-    "bills/22_10_2025_1.json",
-    "bills/22_10_2025_2.json",
-    "bills/22_10_2025_3.json",
-    "bills/21_10_2025_1.json",
-    "bills/21_10_2025_2.json",
-    "bills/21_10_2025_3.json",
-    "bills/20_10_2025_1.json",
-    "bills/20_10_2025_2.json",
-    "bills/20_10_2025_3.json",
-    "bills/17_10_2025_1.json",
-    "bills/17_10_2025_2.json",
-    "bills/17_10_2025_3.json",
-    "bills/16_10_2025_1.json",
-    "bills/16_10_2025_2.json",
-    "bills/16_10_2025_3.json",
-    "bills/15_10_2025_1.json",
-    "bills/15_10_2025_2.json",
-    "bills/15_10_2025_3.json",
-    "bills/14_10_2025_1.json",
-    "bills/14_10_2025_2.json",
-    "bills/14_10_2025_3.json",
-    "bills/10_10_2025_1.json",
-    "bills/10_10_2025_2.json",
-    "bills/10_10_2025_3.json",
-    "bills/09_10_2025_1.json",
-    "bills/09_10_2025_2.json",
-    "bills/09_10_2025_3.json",
-    "bills/08_10_2025_1.json",
-    "bills/08_10_2025_2.json",
-    "bills/08_10_2025_3.json",
-    "bills/07_10_2025_1.json",
-    "bills/07_10_2025_2.json",
-    "bills/07_10_2025_3.json",
-    "bills/06_10_2025_1.json",
-    "bills/06_10_2025_2.json",
-    "bills/06_10_2025_3.json",
-    "bills/03_10_2025_1.json",
-    "bills/03_10_2025_2.json",
-    "bills/03_10_2025_3.json",
-    "bills/02_10_2025_1.json",
-    "bills/02_10_2025_2.json",
-    "bills/02_10_2025_3.json",
-    "bills/01_10_2025_1.json",
-    "bills/01_10_2025_2.json",
-    "bills/01_10_2025_3.json",
-    "bills/30_09_2025_1.json",
-    "bills/30_09_2025_2.json",
-    "bills/30_09_2025_3.json",
-    "bills/29_09_2025_1.json",
-    "bills/29_09_2025_2.json",
-    "bills/29_09_2025_3.json",
-    "bills/26_09_2025_1.json",
-    "bills/26_09_2025_2.json",
-    "bills/26_09_2025_3.json",
-    "bills/25_09_2025_1.json",
-    "bills/25_09_2025_2.json",
-    "bills/25_09_2025_3.json",
-    "bills/24_09_2025_1.json",
-    "bills/24_09_2025_2.json",
-    "bills/24_09_2025_3.json",
-    "bills/23_09_2025_1.json",
-    "bills/23_09_2025_2.json",
-    "bills/23_09_2025_3.json",
-    "bills/22_09_2025_1.json",
-    "bills/22_09_2025_2.json",
-    "bills/22_09_2025_3.json",
-    "bills/19_09_2025_1.json",
-    "bills/19_09_2025_2.json",
-    "bills/19_09_2025_3.json",
-    "bills/18_09_2025_1.json",
-    "bills/18_09_2025_2.json",
-    "bills/18_09_2025_3.json",
-    "bills/17_09_2025_1.json",
-    "bills/17_09_2025_2.json",
-    "bills/17_09_2025_3.json",
-    "bills/16_09_2025_1.json",
-    "bills/16_09_2025_2.json",
-    "bills/16_09_2025_3.json"
-]
+{
+    "05_12_2025": [
+        "bills/05_12_2025_1.json",
+        "bills/05_12_2025_2.json",
+        "bills/05_12_2025_3.json"
+    ],
+    "04_12_2025": [
+        "bills/04_12_2025_1.json",
+        "bills/04_12_2025_2.json",
+        "bills/04_12_2025_3.json"
+    ],
+    "03_12_2025": [
+        "bills/03_12_2025_1.json",
+        "bills/03_12_2025_2.json",
+        "bills/03_12_2025_3.json"
+    ],
+    "02_12_2025": [
+        "bills/02_12_2025_2.json",
+        "bills/02_12_2025_3.json",
+        "bills/02_12_2025_4.json"
+    ],
+    "01_12_2025": [
+        "bills/01_12_2025_1.json",
+        "bills/01_12_2025_2.json",
+        "bills/01_12_2025_3.json"
+    ],
+    "28_11_2025": [
+        "bills/28_11_2025_1.json",
+        "bills/28_11_2025_2.json",
+        "bills/28_11_2025_3.json"
+    ],
+    "26_11_2025": [
+        "bills/26_11_2025_1.json",
+        "bills/26_11_2025_2.json",
+        "bills/26_11_2025_3.json"
+    ],
+    "25_11_2025": [
+        "bills/25_11_2025_1.json",
+        "bills/25_11_2025_3.json",
+        "bills/25_11_2025_4.json"
+    ],
+    "24_11_2025": [
+        "bills/24_11_2025_1.json",
+        "bills/24_11_2025_2.json",
+        "bills/24_11_2025_3.json"
+    ],
+    "21_11_2025": [
+        "bills/21_11_2025_1.json",
+        "bills/21_11_2025_2.json",
+        "bills/21_11_2025_3.json"
+    ],
+    "20_11_2025": [
+        "bills/20_11_2025_1.json",
+        "bills/20_11_2025_2.json",
+        "bills/20_11_2025_3.json"
+    ],
+    "19_11_2025": [
+        "bills/19_11_2025_1.json",
+        "bills/19_11_2025_2.json",
+        "bills/19_11_2025_3.json"
+    ],
+    "18_11_2025": [
+        "bills/18_11_2025_1.json",
+        "bills/18_11_2025_2.json",
+        "bills/18_11_2025_3.json"
+    ],
+    "17_11_2025": [
+        "bills/17_11_2025_1.json",
+        "bills/17_11_2025_2.json",
+        "bills/17_11_2025_3.json"
+    ],
+    "14_11_2025": [
+        "bills/14_11_2025_1.json",
+        "bills/14_11_2025_2.json",
+        "bills/14_11_2025_3.json"
+    ],
+    "13_11_2025": [
+        "bills/13_11_2025_1.json",
+        "bills/13_11_2025_2.json",
+        "bills/13_11_2025_3.json"
+    ],
+    "12_11_2025": [
+        "bills/12_11_2025_1.json",
+        "bills/12_11_2025_2.json",
+        "bills/12_11_2025_3.json"
+    ],
+    "10_11_2025": [
+        "bills/10_11_2025_1.json",
+        "bills/10_11_2025_2.json",
+        "bills/10_11_2025_3.json"
+    ],
+    "07_11_2025": [
+        "bills/07_11_2025_1.json",
+        "bills/07_11_2025_2.json",
+        "bills/07_11_2025_3.json"
+    ],
+    "06_11_2025": [
+        "bills/06_11_2025_1.json",
+        "bills/06_11_2025_2.json",
+        "bills/06_11_2025_3.json"
+    ],
+    "05_11_2025": [
+        "bills/05_11_2025_1.json",
+        "bills/05_11_2025_2.json",
+        "bills/05_11_2025_4.json"
+    ],
+    "04_11_2025": [
+        "bills/04_11_2025_1.json",
+        "bills/04_11_2025_2.json",
+        "bills/04_11_2025_3.json"
+    ],
+    "03_11_2025": [
+        "bills/03_11_2025_1.json",
+        "bills/03_11_2025_2.json",
+        "bills/03_11_2025_3.json"
+    ],
+    "31_10_2025": [
+        "bills/31_10_2025_1.json",
+        "bills/31_10_2025_2.json",
+        "bills/31_10_2025_3.json"
+    ],
+    "30_10_2025": [
+        "bills/30_10_2025_1.json",
+        "bills/30_10_2025_2.json",
+        "bills/30_10_2025_3.json"
+    ],
+    "29_10_2025": [
+        "bills/29_10_2025_1.json",
+        "bills/29_10_2025_2.json",
+        "bills/29_10_2025_3.json"
+    ],
+    "28_10_2025": [
+        "bills/28_10_2025_1.json",
+        "bills/28_10_2025_2.json",
+        "bills/28_10_2025_3.json"
+    ],
+    "27_10_2025": [
+        "bills/27_10_2025_1.json",
+        "bills/27_10_2025_2.json",
+        "bills/27_10_2025_3.json"
+    ],
+    "24_10_2025": [
+        "bills/24_10_2025_1.json",
+        "bills/24_10_2025_2.json",
+        "bills/24_10_2025_3.json"
+    ],
+    "23_10_2025": [
+        "bills/23_10_2025_1.json",
+        "bills/23_10_2025_2.json",
+        "bills/23_10_2025_3.json"
+    ],
+    "22_10_2025": [
+        "bills/22_10_2025_1.json",
+        "bills/22_10_2025_2.json",
+        "bills/22_10_2025_3.json"
+    ],
+    "21_10_2025": [
+        "bills/21_10_2025_1.json",
+        "bills/21_10_2025_2.json",
+        "bills/21_10_2025_3.json"
+    ],
+    "20_10_2025": [
+        "bills/20_10_2025_1.json",
+        "bills/20_10_2025_2.json",
+        "bills/20_10_2025_3.json"
+    ],
+    "17_10_2025": [
+        "bills/17_10_2025_1.json",
+        "bills/17_10_2025_2.json",
+        "bills/17_10_2025_3.json"
+    ],
+    "16_10_2025": [
+        "bills/16_10_2025_1.json",
+        "bills/16_10_2025_2.json",
+        "bills/16_10_2025_3.json"
+    ],
+    "15_10_2025": [
+        "bills/15_10_2025_1.json",
+        "bills/15_10_2025_2.json",
+        "bills/15_10_2025_3.json"
+    ],
+    "14_10_2025": [
+        "bills/14_10_2025_1.json",
+        "bills/14_10_2025_2.json",
+        "bills/14_10_2025_3.json"
+    ],
+    "10_10_2025": [
+        "bills/10_10_2025_1.json",
+        "bills/10_10_2025_2.json",
+        "bills/10_10_2025_3.json"
+    ],
+    "09_10_2025": [
+        "bills/09_10_2025_1.json",
+        "bills/09_10_2025_2.json",
+        "bills/09_10_2025_3.json"
+    ],
+    "08_10_2025": [
+        "bills/08_10_2025_1.json",
+        "bills/08_10_2025_2.json",
+        "bills/08_10_2025_3.json"
+    ],
+    "07_10_2025": [
+        "bills/07_10_2025_1.json",
+        "bills/07_10_2025_2.json",
+        "bills/07_10_2025_3.json"
+    ],
+    "06_10_2025": [
+        "bills/06_10_2025_1.json",
+        "bills/06_10_2025_2.json",
+        "bills/06_10_2025_3.json"
+    ],
+    "03_10_2025": [
+        "bills/03_10_2025_1.json",
+        "bills/03_10_2025_2.json",
+        "bills/03_10_2025_3.json"
+    ],
+    "02_10_2025": [
+        "bills/02_10_2025_1.json",
+        "bills/02_10_2025_2.json",
+        "bills/02_10_2025_3.json"
+    ],
+    "01_10_2025": [
+        "bills/01_10_2025_1.json",
+        "bills/01_10_2025_2.json",
+        "bills/01_10_2025_3.json"
+    ],
+    "30_09_2025": [
+        "bills/30_09_2025_1.json",
+        "bills/30_09_2025_2.json",
+        "bills/30_09_2025_3.json"
+    ],
+    "29_09_2025": [
+        "bills/29_09_2025_1.json",
+        "bills/29_09_2025_2.json",
+        "bills/29_09_2025_3.json"
+    ],
+    "26_09_2025": [
+        "bills/26_09_2025_1.json",
+        "bills/26_09_2025_2.json",
+        "bills/26_09_2025_3.json"
+    ],
+    "25_09_2025": [
+        "bills/25_09_2025_1.json",
+        "bills/25_09_2025_2.json",
+        "bills/25_09_2025_3.json"
+    ],
+    "24_09_2025": [
+        "bills/24_09_2025_1.json",
+        "bills/24_09_2025_2.json",
+        "bills/24_09_2025_3.json"
+    ],
+    "23_09_2025": [
+        "bills/23_09_2025_1.json",
+        "bills/23_09_2025_2.json",
+        "bills/23_09_2025_3.json"
+    ],
+    "22_09_2025": [
+        "bills/22_09_2025_1.json",
+        "bills/22_09_2025_2.json",
+        "bills/22_09_2025_3.json"
+    ],
+    "19_09_2025": [
+        "bills/19_09_2025_1.json",
+        "bills/19_09_2025_2.json",
+        "bills/19_09_2025_3.json"
+    ],
+    "18_09_2025": [
+        "bills/18_09_2025_1.json",
+        "bills/18_09_2025_2.json",
+        "bills/18_09_2025_3.json"
+    ],
+    "17_09_2025": [
+        "bills/17_09_2025_1.json",
+        "bills/17_09_2025_2.json",
+        "bills/17_09_2025_3.json"
+    ],
+    "16_09_2025": [
+        "bills/16_09_2025_1.json",
+        "bills/16_09_2025_2.json",
+        "bills/16_09_2025_3.json"
+    ]
+}
